@@ -1,4 +1,4 @@
-#' plot UI Function
+#' selectInput UI Function
 #'
 #' @description A shiny Module.
 #'
@@ -7,10 +7,7 @@
 #' @noRd
 #'
 #' @importFrom shiny NS tagList
-mod_plot_ui <- function(id,
-                        # Parameters
-                        i18n
-) {
+mod_selectInput_ui <- function(id){
   ns <- NS(id)
   tagList(
 
@@ -18,9 +15,7 @@ mod_plot_ui <- function(id,
     # UI ----------------------------------------------------------------------
     ###########################################################################
 
-    plotOutput(ns("distPlot")),
-
-    p(i18n$t("This is description of the plot."))
+    uiOutput(ns("selectInput_sex"))
 
     ###########################################################################
     # -------------------------------------------------------------------------
@@ -29,12 +24,12 @@ mod_plot_ui <- function(id,
   )
 }
 
-#' plot Server Functions
+#' selectInput Server Functions
 #'
 #' @noRd
-mod_plot_server <- function(id,
-                            # Parameters
-                            bins, text, i18n_r
+mod_selectInput_server <- function(id,
+                                   # Parameters
+                                   i18n_r
 ){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
@@ -43,39 +38,34 @@ mod_plot_server <- function(id,
     # Server ------------------------------------------------------------------
     ###########################################################################
 
-    output$distPlot <- renderPlot({
+    output$selectInput_sex <- renderUI({ # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
       # Reactive parametres ...................................................
-      bins <- bins()
       i18n_r <- i18n_r()
 
       # Calculations ..........................................................
-      # generate bins based on input$bins from ui.R
-      x    <- faithful[, 2]
-      bins <- seq(min(x),
-                  max(x),
-                  length.out = bins + 1)
-
-      # draw the histogram with the specified number of bins
-      hist(x,
-           breaks = bins,
-           col = "darkgray",
-           border = "white",
-           main = paste(i18n_r$t("Histogram of x"),
-                        i18n_r$t("for"),
-                        text()
-           ),
-           ylab = i18n_r$t("Frequency"))
-    })
+      selectInput(
+        inputId = "sex",
+        label = i18n_r$t("Select sex:"),
+        width = "500px",
+        choices = setNames(c(1,2,0),
+                           c(i18n_r$t("Males"),
+                             i18n_r$t("Females"),
+                             i18n_r$t("Both")
+                           )
+        )
+      )
+    }) # End of selectInput_sex()
 
     ###########################################################################
     # -------------------------------------------------------------------------
     ###########################################################################
+
   })
 }
 
 ## To be copied in the UI
-# mod_plot_ui("plot_1")
+# mod_selectInput_ui("selectInput_1")
 
 ## To be copied in the server
-# mod_plot_server("plot_1")
+# mod_selectInput_server("selectInput_1")

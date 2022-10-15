@@ -18,6 +18,15 @@ app_server <- function(input, output, session) {
   # Parametres ----------------------------------------------------------------
 
   bins <- mod_slider_server("slider_1")
+  sex <-  reactive({ input$sex })
+
+  text <- reactive({
+    validate(need(input$sex, FALSE))
+           if( input$sex == 1){ i18n$t("Males")
+    } else if( input$sex == 2){ i18n$t("Females")
+    } else if( input$sex == 0){ i18n$t("Both")
+    }
+  })
 
   # Translator ----------------------------------------------------------------
   i18n_r <- reactive({
@@ -35,9 +44,20 @@ app_server <- function(input, output, session) {
 
   # Main ----------------------------------------------------------------------
 
-  mod_plot_server("plot_1",
-                  bins, i18n_r
+  mod_slider_server("slider_1")
+
+  mod_selectInput_server("selectInput_1",
+                         i18n_r # Parameters
   )
+
+  mod_text_server("text_1",
+                  i18n_r, sex, text # Parameters
+  )
+
+  mod_plot_server("plot_1",
+                  bins, text, i18n_r # Parameters
+  )
+
 
   #############################################################################
   # ---------------------------------------------------------------------------

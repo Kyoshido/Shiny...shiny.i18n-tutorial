@@ -39,7 +39,8 @@ app_ui <- function(request) {
 
           mod_slider_ui("slider_1",
                         i18n # Parameters
-          )
+          ),
+          mod_selectInput_ui("selectInput_1")
 
         ), # End of sidebarPanel()
 
@@ -48,7 +49,8 @@ app_ui <- function(request) {
 
           mod_plot_ui("plot_1",
                       i18n # Parameters
-          )
+          ),
+          mod_text_ui("text_1")
 
         ) # End of mainPanel()
       ) # End of sidebarLayout¨()
