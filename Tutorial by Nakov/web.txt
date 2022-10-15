@@ -1,0 +1,1 @@
+https://discindo.org/post/using-shiny-i18n-with-golem-for-server-side-translation/

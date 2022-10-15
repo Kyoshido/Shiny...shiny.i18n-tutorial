@@ -1,0 +1,52 @@
+ui|ru
+ui_nav_page_main|Главная
+ui_nav_app_be|Размер выборки БЭ
+ui_nav_app_rand|Рандомизационный лист
+ui_nav_page_help|Помощь / Обратная связь
+
+ui_app_common_rcodepanel|Код на R
+ui_app_common_envirpanel|Версия рабочей среды
+ui_app_common_outpanel|Результат
+
+ui_mainpage_lang|Язык интерфейса
+ui_mainpage_loading|Загрузка...
+ui_mainpage_readmefile|Readme_ru.html
+
+ui_BE_title|Размер выборки для исследований биоэквивалентности
+ui_BE_input_cv|Укажите CV intra
+ui_BE_input_tr|Укажите отношение T/R
+ui_BE_input_design|Выберите дизайн исследования
+ui_BE_input_2x1|2x1 (2 параллельные группы)
+ui_BE_input_2x2|2x2 (простой перекрест)
+ui_BE_input_2x2x4|2x2x4 (полный репликативный)
+ui_BE_input_limits|Выберите допустимые границы 90% ДИ
+ui_BE_input_widened|Расширенные границы
+ui_BE_input_power|Выберите мощность теста
+ui_BE_input_pleaseclick|Не забудьте нажать кнопку 'Рассчитать'!
+ui_BE_input_calculate|Рассчитать размер выборки
+ui_BE_validate_cv|Значение CV intra должно быть > 0
+ui_BE_validate_tr|Отношение T/R должно быть больше %s и меньше %s
+ui_BE_validate_widened|Расширенные границы допустимы только для полностью репликативного дизайна и CV intra > 0.3
+
+ui_RAND_title|Рандомизационный лист
+ui_RAND_input_method|Выберите метод рандомизации
+ui_RAND_input_methodsimple|Простой
+ui_RAND_input_methodblocked|Блочный
+ui_RAND_input_nsubjects|Укажите количество участников исследования
+ui_RAND_input_armlabelinfo|Введите название и размер каждой группы. Группы без названий не будут учитываться.
+ui_RAND_input_armlabel|Название группы %s
+ui_RAND_input_armsize|размер
+ui_RAND_input_addarm|Добавить новую группу
+ui_RAND_txt_treatment|Терапия
+ui_RAND_txt_control|Контроль
+ui_RAND_input_blocksize|Укажите размер блока
+ui_RAND_input_pleaseclick|Не забудьте нажать кнопку 'Создать'!
+ui_RAND_input_calculate|Создать рандомизационный лист
+ui_RAND_input_savecsv|Скачать .CSV файл
+ui_RAND_input_preview|Рандомизационная таблица (первые 50 записей)
+
+ui_RAND_validate_blocksize|Размер блока должен быть кратен %s
+ui_RAND_validate_armsize|Как минимум одна группа задана неверно. Размер группы должен быть целой величиной не менее %s
+ui_RAND_validate_nsubj|Количество участников должно быть целой величиной больше единицы, например, %s
+ui_RAND_validate_failedcsv|Возникла ошибка при создании рандомизационного списка.
+ui_RAND_validate_armduplicated|Названия групп не должны повторяться

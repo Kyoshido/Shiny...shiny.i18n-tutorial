@@ -1,0 +1,36 @@
+---
+title: "Readme"
+date: "Last edited on 2021-03-14"
+output:
+  html_document:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### What are ClinRTools?
+
+ClinRTools help clinical trial specialists to plan new studies.
+
+This Demo version contains a limited amount of Tools.
+
+**Demo version of ClinRTools is distributed without any warranty and should be used at your own risk.**
+
+Please remember to verify/validate the results with the biostatistician
+
+### Technical details
+
+ClinRTools use R language to provide all the computations.
+
+R sessions are running on the server, so users are not required to have a local installation.
+
+Reproducible code and environment options can be found in each of the Tools pages.
+
+### Help and Feedback
+
+Demo version of ClinRTools is distributed without any official support.
+
+Any questions, feedback and inquiries can be sent to [Ed Parsadanyan](https://www.linkedin.com/in/parsadanyan/){target="_blank"}.
+
