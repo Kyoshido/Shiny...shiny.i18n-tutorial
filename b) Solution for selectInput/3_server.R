@@ -51,7 +51,7 @@ server <- function(input, output, session) {
 
   # Main ----------------------------------------------------------------------
   
-  mod_slider_server("mod_selectInput")
+  mod_slider_server("mod_slider")
   
   mod_selectInput_server("mod_selectInput",
                          i18n_r # Parameters
