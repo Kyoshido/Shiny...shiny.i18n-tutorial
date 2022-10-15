@@ -1,0 +1,71 @@
+###############################################################################
+###############################################################################
+###############################################################################
+
+# Packages --------------------------------------------------------------------
+library(shiny)
+library(shiny.i18n)
+
+# Load files ------------------------------------------------------------------
+source("3_mod_slider.R")
+source("3_mod_plot.R")
+source("3_mod_selectInput.R")
+source("3_mod_text.R")
+
+# Translations ----------------------------------------------------------------
+i18n <- Translator$new(translation_csvs_path = "translations/",
+                       separator_csv = ";") # translation file
+i18n$set_translation_language("en")
+
+# -----------------------------------------------------------------------------
+
+###############################################################################
+
+ui <- fluidPage(
+  
+  # Translations
+  shiny.i18n::usei18n(i18n),
+  div(style = "float: right;",
+      selectInput('selected_language',
+                  i18n$t("Change language"),
+                  choices = i18n$get_languages(),
+                  selected = i18n$get_key_translation())
+  ),
+  
+  #############################################################################
+  # UI ------------------------------------------------------------------------
+  #############################################################################
+  
+  # Application title
+  titlePanel(i18n$t("Hello Shiny!"), windowTitle = NULL),
+  
+  # Sidebar with a slider input for number of bins 
+  sidebarLayout(
+    sidebarPanel(
+      
+      mod_slider_ui("mod_slider", 
+                    i18n # Parameters
+      ),
+      mod_selectInput_ui("mod_selectInput")
+
+    ), # End of sidebarPanel()
+    
+    # Show a plot of the generated distribution
+    mainPanel(
+      
+      mod_plot_ui("mod_plot", 
+                  i18n # Parameters
+      ),
+      mod_text_ui("mod_text") 
+
+    ) # End of mainPanel()
+  ) # End of sidebarLayout¨()
+  
+  #############################################################################
+  # ---------------------------------------------------------------------------
+  #############################################################################
+) # End of ui()
+
+###############################################################################
+###############################################################################
+###############################################################################
